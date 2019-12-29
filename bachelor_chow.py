@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+
+import json
+from json2html import *
+import random
+
+recipe_json=open("/home/zack/Projects/recipe-db/db-recipes.json")
+
+# Load the recipe json from the file into a dictionary
+all_recipes=json.load(recipe_json)
+
+# Get all of the keys
+recipe_keys=list(all_recipes.keys())
+
+# randomly pick one
+recipe_entry=random.choice(recipe_keys)
+
+# Get the dictionary entry, this will be in json format
+recipe=all_recipes[recipe_entry]
+
+# convert the dictionary to a json string
+recipe_json_string=json.dumps(recipe)
+
+# Take the json formatted recipe and convert to html
+html=json2html.convert(json=recipe_json_string)
+print(html)
+
+# open a file named index.html
+index_file=open(file="/home/zack/Projects/bachelor_chow/index.html", mode="w")
+# write to the file
+index_file.write(html)
+
+recipe_json.close()
+index_file.close()
