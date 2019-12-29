@@ -6,7 +6,7 @@ from json2html import *
 import random
 
 def get_recipe():
-    recipe_json=open("/home/zack/Projects/recipe-db/db-recipes.json")
+    recipe_json=open("db-recipes.json")
 
     # Load the recipe json from the file into a dictionary
     all_recipes=json.load(recipe_json)
@@ -27,7 +27,7 @@ def get_recipe():
     html=json2html.convert(json=recipe_json_string)
 
     # open a file named index.html
-    index_file=open(file="/home/zack/Projects/bachelor_chow/index.html", mode="w")
+    index_file=open(file="index.html", mode="w")
     # write to the file
     index_file.write(html)
 
