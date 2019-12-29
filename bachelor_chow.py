@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import time
 import json
 from json2html import *
 import random
@@ -34,7 +35,9 @@ def get_recipe():
     index_file.close()
 
 def main():
-    get_recipe()
+    while True:
+        get_recipe()
+        time.sleep(60)
 
 if __name__ == "__main__":
     main()
