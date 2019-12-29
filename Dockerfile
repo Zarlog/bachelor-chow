@@ -13,3 +13,6 @@ RUN apk add --no-cache python3 && \
 WORKDIR /root
 
 COPY src/* bachelor_chow/
+
+WORKDIR /root/bachelor_chow
+CMD ./bachelor_chow.py
