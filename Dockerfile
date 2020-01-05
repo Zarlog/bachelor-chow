@@ -8,11 +8,11 @@ RUN apk add --no-cache python3 && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     mkdir ~/bachelor_chow && \
+    mkdir ~/html && \
     rm -r /root/.cache
 
 WORKDIR /root
 
 COPY src/* bachelor_chow/
-
 WORKDIR /root/bachelor_chow
 CMD ./bachelor_chow.py

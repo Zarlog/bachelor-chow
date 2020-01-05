@@ -27,7 +27,7 @@ def get_recipe():
     html=json2html.convert(json=recipe_json_string)
 
     # open a file named index.html
-    index_file=open(file="index.html", mode="w")
+    index_file=open(file="/root/html/index.html", mode="w")
     # write to the file
     index_file.write(html)
 

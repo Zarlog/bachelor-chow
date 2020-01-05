@@ -1,0 +1,6 @@
+# create a docker volume
+docker volume create bachelor_chow_html
+# start the bachelor_chow service using the docker volume exposing /root/html from the container that has index.html file with the recipe
+docker container run -d --name bachelor_chow --mount 'type=volume,source=bachelor_chow_html,target=/root/html' bachelor_chow
+# start nginx using the docker volume and map it to the nginx directory /usr/share/nginx
+docker container run --mount type=volume,source=bachelor_chow_html,target=/usr/share/nginx/html -d -p 80:80 nginx
