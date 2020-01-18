@@ -4,3 +4,7 @@ docker volume create bachelor_chow_html
 docker container run -d --name bachelor_chow --mount 'type=volume,source=bachelor_chow_html,target=/root/html' bachelor_chow
 # start nginx using the docker volume and map it to the nginx directory /usr/share/nginx
 docker container run --mount type=volume,source=bachelor_chow_html,target=/usr/share/nginx/html -d -p 80:80 nginx
+
+# how to start by not using mounts
+docker container run -d --name bachelor_chow -v bachelor_chow_html:/root/html bachelor_chow
+docker container run -d -p 80:80 -v bachelor_chow_html:/usr/share/nginx/html nginx
