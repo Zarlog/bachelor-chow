@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    recipe:
+        image: zarl/bachelor_chow:version0.1
+        volumes:
+            - bachelor_chow_html:/root/html
+    web:
+        image: nginx:latest
+        ports:
+            - 80:80
+        volumes:
+            - bachelor_chow_html:/usr/share/nginx/html:ro
+volumes:
+    bachelor_chow_html:
