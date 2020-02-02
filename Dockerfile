@@ -11,7 +11,6 @@ RUN apk add --no-cache python3 && \
     mkdir ~/html && \
     rm -r /root/.cache
 
-VOLUME ["~/html"]
 WORKDIR /root
 
 COPY src/* bachelor_chow/
