@@ -1,0 +1,10 @@
+This is a kubernetes deployment it will create a service and a deployment.
+The deployment will consist of one pod with two containers that share a volume.
+
+To run:
+minikube start
+kubectl apply -f app.yml
+kubectl get service - get the service name, it will be app-bachelor-service
+minikube service app-bachelor-service --url
+get the url and plug it in to a browser
+
